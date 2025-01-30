@@ -1,0 +1,29 @@
+This package, `sharpps.extension`, was built to provide tools for creating, building, and deploying Visual Studio solutions.
+
+## Verification Steps
+1. Install Chocolatey
+
+2. choco install sharpps.extension
+
+3. Use Chocolatey profiles:
+   Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1 -Force
+   Import-Module $env:ChocolateyInstall\helpers\chocolateyInstaller.psm1 -Force
+
+4. Verify SharpPS Function
+   Get-Command -Name "Invoke-SharpPS*" -CommandType Function
+   Get-Command -Name "New-SharpPS*" -CommandType Function
+
+## USAGE
+1. Create Sitecore Solution
+   New-SharpPSSitecore `
+            -SolutionName  sitecore104 `
+            -Version 10.4 `
+            -TargetDirectory C:\Projects `
+            -Url https:\\sitecore.x4.dev `
+            -SitecorePath C:\inetpub\wwwroot\sitecore.x4.dev
+
+2. Build Visual Studio Solution
+   Invoke-SharpPSBuild `
+            -Verbose `
+            -Path VSSolution.sln `
+            -Targets Restore, Rebuild
