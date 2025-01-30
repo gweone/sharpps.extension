@@ -3,7 +3,7 @@ Function New-SharpPSVisualStudio {
     param(
         [string]$VSProduct="Enterprise",
         [string]$VSYear="2022",
-        [string]$VSKey="VHF9H-NXBBB-638P6-6JHCY-88JWH",
+        [string]$VSKey="",
         [string]$VSUrl="",
         [string]$VsixUrl,
         [switch]$Passive,
